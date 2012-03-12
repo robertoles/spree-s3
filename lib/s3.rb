@@ -1,6 +1,6 @@
 module S3
   class << self
-    attr_accessor :key, :secret, :bucket
+    attr_accessor :key, :secret, :bucket, :path
 
     def key
       @key || ENV['S3_KEY']
@@ -12,6 +12,10 @@ module S3
 
     def bucket
       @bucket || ENV['S3_BUCKET']
+    end
+
+    def path
+      @path || ENV['S3_PATH']
     end
 
     def enabled?
@@ -31,6 +35,7 @@ module S3
       self.key = hash[:key]
       self.secret = hash[:secret]
       self.bucket = hash[:bucket]
+      self.path = hash[:path] unless hash[:path].blank?
     end
   end
 
@@ -45,7 +50,7 @@ module S3
   private
     def configure_definition_for_s3(definition)
       definition.delete :url
-      definition[:path] = definition[:path].gsub(':rails_root/public/', '')
+      definition[:path] = S3.path || definition[:path].gsub(':rails_root/public/', '')
       definition[:storage] = 's3'
       definition[:bucket] = S3.bucket
       definition[:s3_credentials] = {:access_key_id => S3.key, :secret_access_key => S3.secret}

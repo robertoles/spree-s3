@@ -15,10 +15,10 @@ module SpreeS3
       end
 
 # FIXME: causing problems during db:migrate
-#      Taxon.class_eval do
-#        extend S3::Attachment
-#        sends_files_to_s3 if S3.enabled?
-#      end
+      Taxon.class_eval do
+        extend S3::Attachment
+        sends_files_to_s3 if S3.enabled?
+      end
     end
 
     config.to_prepare &method(:activate).to_proc

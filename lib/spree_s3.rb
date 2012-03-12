@@ -20,7 +20,7 @@ module SpreeS3
       end
     end
 
-    def activate
+    def self.activate
       # do nothing, I suck
     end
 

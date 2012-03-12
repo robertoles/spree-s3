@@ -6,7 +6,7 @@ module SpreeS3
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-    def self.activate
+    initializer 'my_engine.interact_with_routes', :after=> :disable_dependency_loading do |app|
       S3.load_s3_yaml
 
       Image.class_eval do

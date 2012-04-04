@@ -9,12 +9,12 @@ module SpreeS3
     initializer 'my_engine.interact_with_routes', :after=> :disable_dependency_loading do |app|
       S3.load_s3_yaml
 
-      Image.class_eval do
+      Spree::Image.class_eval do
         extend S3::Attachment
         sends_files_to_s3 if S3.enabled?
       end
 
-      Taxon.class_eval do
+      Spree::Taxon.class_eval do
         extend S3::Attachment
         sends_files_to_s3 if S3.enabled?
       end

@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_s3'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.summary     = 'Amazon S3 integration for Spree'
   s.description = 'Amazon S3 integration for your Spree store, using the aws-s3 gem.'
   s.required_ruby_version = '>= 1.8.7'

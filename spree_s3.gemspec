@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = true
 
-  s.add_dependency('spree_core', '>= 1.0.0')
+  s.add_dependency('spree_core', '>= 1.1.0')
   s.add_dependency('paperclip', '>=2.3.6')
   s.add_dependency('aws-s3', '>= 0.6.2')
 end

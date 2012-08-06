@@ -1,5 +1,4 @@
 require 'spree_core'
-require 'spree_s3_hooks'
 
 module SpreeS3
   class Engine < Rails::Engine
